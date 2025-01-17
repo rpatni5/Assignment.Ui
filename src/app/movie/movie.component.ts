@@ -52,6 +52,7 @@ export class MovieComponent {
   onSearch(): void {
     this.movieService.searchMovies(this.searchTerm).then(
       (data) => {
+        this.movies = data.result || [];
         this.totalMovies = this.movies.length
         const startIndex = this.currentPage * this.pageSize;
         const endIndex = startIndex + this.pageSize;
